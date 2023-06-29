@@ -7,6 +7,13 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import theme from "../../styles/theme";
 import createEmotionCache from "../../styles/createEmotionCache";
 import "../../styles/globals.css";
+import Layout from "@/components/layout/layout";
+import ContextProviderWrapper from "@/context/ContextProvider";
+if (process.env.NEXT_PUBLIC_ENABLE_MOCK_URL === "true") {
+  import("../mocks").then(({ setupMocks }) => {
+    setupMocks();
+  });
+}
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -17,14 +24,18 @@ export interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </CacheProvider>
+    <ContextProviderWrapper>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </CacheProvider>
+    </ContextProviderWrapper>
   );
 }

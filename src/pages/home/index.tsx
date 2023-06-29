@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Box } from "@mui/material";
 import Head from "next/head";
-import PageTitle from "../../components/user_management/pageTitle";
-import SetFocusDistrictsModal from "../../components/modals/SetFocusDistrictsModal";
-import MneHome from "../../components/home/MneHome/MneHome";
 import { get } from "../../config/axiosClient";
-import { Context } from "../../context/ContextProvider";
 import { min } from "moment";
+import { Context } from "@/context/ContextProvider";
+import MneHome from "@/components/home/MneHome/MneHome";
+import SetFocusDistrictsModal from "@/components/modals/SetFocusDistrictsModal";
+import PageTitle from "@/components/user_management/pageTitle";
 
 const Dashboard = () => {
   const context = useContext(Context);

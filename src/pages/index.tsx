@@ -25,21 +25,21 @@ const AdminSignIn = () => {
   });
 
   const handleRegister = async (values: any) => {
-    await noAuthPost(`auth/user/signin`, values)
-      .then((res: any) => {
-        localStorage.setItem("redloftoken", res.data.body.token);
-        router.push(`/home`, `/home`);
-      })
-      .catch((error) => {
-        ErrorToast(error.response.data);
-      });
+    await noAuthPost(`auth/user/signin`, values).then((res: any) => {
+      console.log("first", res.data);
+      localStorage.setItem("redloftoken", res.data.body.token);
+      router.push(`/home`, `/home`);
+    }),
+      (err: any) => {
+        ErrorToast(err.response.data);
+      };
   };
 
   return (
     <Box>
       <>
         <Head>
-          <title>Login | Milaan</title>
+          <title>Login | Unmukt</title>
           <meta
             name="description"
             content="Milaan Foundation is a non-profit, human rights-based organization, which envisions an inclusive and equal world, where every girl has the knowledge, skills, and social environment to pursue her dreams and explore her full potential."
