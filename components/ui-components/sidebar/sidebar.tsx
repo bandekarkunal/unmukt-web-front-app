@@ -3,10 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useTheme } from "@mui/material/styles";
 import { Context } from "../../../context/ContextProvider";
+import { sidebarData } from "../../../utils/static/drawerMenuItems";
 
 import DesktopSidebar from "./desktopSidebar";
 import MobileSidebar from "./mobileSidebar";
-import { sidebarData } from "@/utils/static/drawerMenuItems";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -53,7 +53,7 @@ const Sidebar = () => {
             permissionFlag > 0 ||
             (userProfile?.roles &&
               nestedOption?.role_specific?.indexOf(userProfile?.roles[0]) !==
-              -1)
+                -1)
           )
             tempArr.push(nestedOption);
 
@@ -91,7 +91,7 @@ const Sidebar = () => {
     }
     router.push(option?.link);
     if (!matches) {
-      handleCloseDrawer()
+      handleCloseDrawer();
     }
   };
 

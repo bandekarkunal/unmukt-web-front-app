@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Context } from "../../../context/ContextProvider";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import StateMenu from "../../ui-components/stateMenu";
 
 interface props {
   showHeaderComponents: boolean;
@@ -67,7 +66,6 @@ const HeaderDrawerSection: React.FunctionComponent<props> = ({
           ) : null}
         </Box>
       </Box>
-      {showHeaderComponents ? <StateMenu /> : null}
     </Box>
   );
 };

@@ -57,7 +57,7 @@ const Dashboard = () => {
       />
       <Box>
         <Head>
-          <title>Dashbaord | Milaan</title>
+          <title>Dashbaord | Unmukt</title>
           <meta
             name="description"
             content="Milaan Foundation is a non-profit, human rights-based organization, which envisions an inclusive and equal world, where every girl has the knowledge, skills, and social environment to pursue her dreams and explore her full potential."

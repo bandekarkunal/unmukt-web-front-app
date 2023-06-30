@@ -37,7 +37,12 @@ const MneTable: React.FunctionComponent<props> = ({
             }}
           >
             <Typography
-              sx={{ fontSize: "12px", color: "#7d398d", fontWeight: 700 }}
+              sx={{
+                fontSize: "12px",
+                color: "#7d398d",
+                fontWeight: 700,
+                lineHeight: 1.5,
+              }}
             >
               ASSESSMENT OVERVIEW DETAILS
             </Typography>

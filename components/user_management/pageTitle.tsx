@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import CustomBreadcrumbs from "../ui-components/customBreadcrumbs";
 
 interface props {
   route: string;
@@ -8,6 +7,7 @@ interface props {
   subTitle?: string;
   backgroundColor?: string;
   sx?: any;
+  children?: React.ReactNode;
 }
 
 const PageTitle: React.FunctionComponent<props> = ({
@@ -52,7 +52,7 @@ const PageTitle: React.FunctionComponent<props> = ({
               color={"#391439"}
               fontSize={matches ? "31px" : "18px"}
               variant={"h1"}
-              fontWeight={500}
+              fontWeight={700}
               marginBottom={matches ? 1 : 0}
             >
               {title}

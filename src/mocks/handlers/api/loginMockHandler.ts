@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-import { URL } from "../../config/mockConfig";
+import { URL } from "../../../config/mockConfig";
 
 export const loginHandlers = [
   rest.post(`${URL}/auth/user/signin`, (req, res, ctx) => {

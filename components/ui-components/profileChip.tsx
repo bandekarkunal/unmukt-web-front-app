@@ -82,9 +82,7 @@ const ProfileChip = () => {
       </Box>
       <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
         <Link href={"/profile"}>
-          <a>
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-          </a>
+          <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
         </Link>
         <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
       </Menu>
