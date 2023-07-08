@@ -36,7 +36,7 @@ const PrimaryLoadingButton: React.FunctionComponent<props> = ({
         borderRadius: "0px",
         boxShadow: "none !important",
         textTransform: "none",
-        fontWeight: 500,
+        fontWeight: 560,
         position: "relative",
         ...sx,
       }}

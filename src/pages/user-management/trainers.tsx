@@ -7,6 +7,8 @@ import { Context } from "@/context/ContextProvider";
 import { FetchUsersListPromise } from "@/utils/apis/common/userList";
 import UsersList from "@/components/user_management/UsersList";
 import AddUserToRole from "@/components/modals/AddUserToRole";
+import TrainersList from "@/components/user_management/listingComponents/trainersListing";
+import { get } from "@/src/config/axiosClient";
 
 const Trainers = () => {
   const context = useContext(Context);
@@ -22,19 +24,20 @@ const Trainers = () => {
     setOpenAddFacilitatorModal(true);
   };
 
-  const fetchUsers = () => {
-    FetchUsersListPromise("role-trainer", "").then((response: any) => {
-      setUsersList(response);
+  const fetchUsersList = async (status?: any) => {
+    let params: any = {};
+    await get("trainers", params).then((res) => {
+      setUsersList(res.data.body);
     });
   };
 
   const handleCloseModalCallback = () => {
-    fetchUsers();
+    fetchUsersList();
     setOpenAddFacilitatorModal(false);
   };
 
   useEffect(() => {
-    fetchUsers();
+    fetchUsersList();
   }, [currentState]);
 
   return (
@@ -64,7 +67,11 @@ const Trainers = () => {
         </PageTitle>
 
         <Box padding={"20px 30px"}>
-          <UsersList userList={usersList} showReporter={true} />
+          <TrainersList
+            userList={usersList}
+            showReporter={true}
+            fetchUserCallback={fetchUsersList}
+          />
         </Box>
       </Box>
     </>

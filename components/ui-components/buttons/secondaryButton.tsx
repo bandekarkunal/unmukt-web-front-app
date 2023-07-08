@@ -34,7 +34,7 @@ const SecondaryButton: React.FunctionComponent<SecondaryBtnProps> = ({
         borderRadius: "0px",
         boxShadow: "none",
         textTransform: "none",
-        fontWeight: 500,
+        fontWeight: 560,
         position: "relative",
         backgroundColor: theme.palette.secondary.light,
         color: theme.palette.secondary.main,

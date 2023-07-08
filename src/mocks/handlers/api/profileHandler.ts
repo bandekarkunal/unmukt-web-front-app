@@ -27,7 +27,7 @@ export const profileHandlers = [
           deleted_at: null,
           state_member: null,
           profile: null,
-          roles: ["role-admin"],
+          roles: ["role-trainer"],
           is_assessor: false,
           is_supporter: false,
           is_lead: false,

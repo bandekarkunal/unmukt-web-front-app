@@ -47,7 +47,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
         borderRadius: "0px",
         boxShadow: "none !important",
         textTransform: "none",
-        fontWeight: 500,
+        fontWeight: 560,
         position: "relative",
         ...sx,
       }}

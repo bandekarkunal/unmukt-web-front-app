@@ -64,7 +64,7 @@ const CustomSelectField: React.FC<props> = ({
         >
           <strong
             style={{
-              fontWeight: 500,
+              fontWeight: 560,
             }}
           >
             {label}{" "}

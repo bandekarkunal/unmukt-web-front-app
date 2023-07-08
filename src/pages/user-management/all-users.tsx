@@ -6,10 +6,10 @@ import PageTitle from "@/components/user_management/pageTitle";
 import { ErrorToast, SuccessToast } from "@/utils/toasts";
 import PrimaryButton from "@/components/ui-components/buttons/primaryButton";
 import { GlobalAddUser } from "@/utils/dataModifiers/ConditinalRenderingForRoles";
-import UsersList from "@/components/user_management/UsersList";
 import StatusTabs from "@/components/ui-components/StatusTabs";
 import AddUserModal from "@/components/modals/AddUserModal";
 import BulkUploadUsers from "@/components/modals/BulkUploadUsers";
+import UsersList from "@/components/user_management/UsersList";
 
 const AllUsers = () => {
   const context = useContext(Context);
@@ -65,11 +65,6 @@ const AllUsers = () => {
     });
   };
 
-  const handleTabChange = (status: any) => {
-    setCurrentStatus(status);
-    fetchUserList(status);
-  };
-
   useEffect(() => {
     fetchUserList(currentStatus);
   }, [currentState]);
@@ -121,7 +116,7 @@ const AllUsers = () => {
 
         <Box padding={"20px 30px"}>
           <Box marginBottom={"20px"}>
-            <StatusTabs onTabChange={handleTabChange} />
+            {/* <StatusTabs onTabChange={handleTabChange} /> */}
           </Box>
           <UsersList
             userList={usersList}

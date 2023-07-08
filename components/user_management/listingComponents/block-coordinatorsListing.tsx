@@ -5,8 +5,8 @@ import {
   GridRenderCellParams,
   GridValueGetterParams,
 } from "@mui/x-data-grid";
-import DatagridComponent from "../ui-components/datagridComponent";
-import UserListAction from "./UserListAction";
+import DatagridComponent from "@/components/ui-components/datagridComponent";
+import UserListAction from "../UserListAction";
 
 interface props {
   userList?: any;
@@ -15,7 +15,7 @@ interface props {
   fetchUserCallback?: any;
 }
 
-const UsersList: React.FunctionComponent<props> = ({
+const BlockCoordinatesList: React.FunctionComponent<props> = ({
   userList = [],
   showRole = false,
   showReporter = false,
@@ -45,11 +45,12 @@ const UsersList: React.FunctionComponent<props> = ({
       flex: 0.4,
       valueGetter: (params: GridRenderCellParams) => params.row.designation,
     },
+
     {
-      field: "state",
-      headerName: "State",
-      flex: 0.6,
-      valueGetter: (params: GridValueGetterParams) => params.row.state,
+      field: "block",
+      headerName: "Block",
+      flex: 0.4,
+      valueGetter: (params: GridRenderCellParams) => params.row.block,
     },
     {
       field: "role",
@@ -57,21 +58,21 @@ const UsersList: React.FunctionComponent<props> = ({
       flex: 0.6,
       valueGetter: (params: GridValueGetterParams) => params.row.roles[0]?.name,
     },
-    {
-      field: "action",
-      headerName: "Action",
-      flex: 0.7,
-      renderCell: (params: GridRenderCellParams) => (
-        <UserListAction
-          userData={params.row}
-          showRole={showRole}
-          fetchCallback={fetchUserCallback}
-        />
-      ),
-    },
+    // {
+    //   field: "action",
+    //   headerName: "Action",
+    //   flex: 0.7,
+    //   renderCell: (params: GridRenderCellParams) => (
+    //     <UserListAction
+    //       userData={params.row}
+    //       showRole={showRole}
+    //       fetchCallback={fetchUserCallback}
+    //     />
+    //   ),
+    // },
   ];
 
   return <DatagridComponent columns={columns} list={userList} />;
 };
 
-export default UsersList;
+export default BlockCoordinatesList;

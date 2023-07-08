@@ -22,13 +22,7 @@ const CurriculumsList: React.FunctionComponent<props> = ({
   const regex = /<(.|\n)*?>/g;
 
   const handleViewDetailsClick = (uuid: string) => {
-    if (type === "peer-member") {
-      router.push(
-        `/nurture-phase/training/peer-member-training/single-curriculum-details/${uuid}`
-      );
-      return;
-    }
-    router.push(`/nurture-phase/training/curriculum/${uuid}`);
+    router.push(`/curriculum/${uuid}`);
   };
 
   const columns: GridColDef[] = [
@@ -37,7 +31,7 @@ const CurriculumsList: React.FunctionComponent<props> = ({
       headerName: "Title",
       flex: 0.4,
       renderCell: (params: GridRenderCellParams) => (
-        <Typography sx={{ fontSize: 13, color: "#232323", fontWeight: 400 }}>
+        <Typography sx={{ fontSize: 13, color: "#232323", fontWeight: 560 }}>
           {params.row.name}
         </Typography>
       ),
@@ -45,31 +39,14 @@ const CurriculumsList: React.FunctionComponent<props> = ({
     {
       field: "desc",
       headerName: "Description",
-      flex: 1.2,
+      flex: 0.8,
       renderCell: (params: GridRenderCellParams) => (
-        <Typography sx={{ fontSize: 13, color: "#565656", fontWeight: 400 }}>
+        <Typography sx={{ fontSize: 13, color: "#565656", fontWeight: 560 }}>
           {params?.row?.description?.replace(regex, "")?.substr(0, 75)}
         </Typography>
       ),
     },
-    {
-      field: "id",
-      headerName: "Curriculum Number",
-      flex: 0.3,
-      renderCell: (params: GridRenderCellParams) => (
-        <Box sx={{ margin: "0 auto", marginRight: "60%" }}>
-          <Typography
-            sx={{
-              fontSize: 13,
-              color: "#565656",
-              fontWeight: 400,
-            }}
-          >
-            {params?.row?.id}
-          </Typography>
-        </Box>
-      ),
-    },
+
     {
       field: "status",
       headerName: "Status",
@@ -82,7 +59,7 @@ const CurriculumsList: React.FunctionComponent<props> = ({
             borderRadius: "30px",
             width: "100px",
             fontSize: "13px",
-            fontWeight: 500,
+            fontWeight: 560,
             textTransform: "uppercase",
           }}
         />

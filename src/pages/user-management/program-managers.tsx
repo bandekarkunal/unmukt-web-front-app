@@ -4,15 +4,15 @@ import { Context } from "@/context/ContextProvider";
 import { ManageUserRoleSpecific } from "@/utils/dataModifiers/ConditinalRenderingForRoles";
 import { FetchUsersListPromise } from "@/utils/apis/common/userList";
 import PrimaryButton from "@/components/ui-components/buttons/primaryButton";
-import UsersList from "@/components/user_management/UsersList";
 import AddUserToRole from "@/components/modals/AddUserToRole";
 import PageTitle from "@/components/user_management/pageTitle";
+import ProgrammingManagersList from "@/components/user_management/listingComponents/program-managersListing";
+import { get } from "@/src/config/axiosClient";
 
 const ProgramManagers = () => {
   const context = useContext(Context);
 
   const GlobalContextDetails = context?.GlobalDetails;
-  console.log("first", GlobalContextDetails);
   const { userProfile } = GlobalContextDetails?.state;
   const [openAssignRoleModal, setOpenAssignRoleModal] =
     useState<boolean>(false);
@@ -28,9 +28,10 @@ const ProgramManagers = () => {
     setOpenAssignRoleModal(false);
   };
 
-  const fetchUsersList = () => {
-    FetchUsersListPromise("role-program-manager", "").then((response: any) => {
-      setUsersList(response);
+  const fetchUsersList = async (status?: any) => {
+    let params: any = {};
+    await get("program-managers", params).then((res) => {
+      setUsersList(res.data.body);
     });
   };
 
@@ -52,7 +53,7 @@ const ProgramManagers = () => {
           title={"Program Managers"}
           subTitle={"Showing various statistics from various states below"}
         >
-          {/* {ManageUserRoleSpecific(
+          {ManageUserRoleSpecific(
             ["role-admin", "role-state-admin"],
             userProfile?.roles?.[0]
           ) ? (
@@ -61,10 +62,13 @@ const ProgramManagers = () => {
               sx={{ height: "32px !important", fontSize: "11px" }}
               onClick={handleAddManagerClick}
             />
-          ) : null} */}
+          ) : null}
         </PageTitle>
         <Box sx={{ padding: "20px 30px" }}>
-          <UsersList userList={usersList} />
+          <ProgrammingManagersList
+            userList={usersList}
+            fetchUserCallback={fetchUsersList}
+          />
         </Box>
       </Box>
     </>

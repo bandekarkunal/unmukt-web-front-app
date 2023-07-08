@@ -19,12 +19,9 @@ export const sidebarData = [
     icon: <GroupIcon />,
     roles: [
       "role-admin",
-      "role-hr",
-      "role-tnd",
-      "role-program-head",
-      "role-state-admin",
       "role-program-manager",
-      "role-program-coordinator",
+      "role-block-coordinator",
+      "role-trainer",
     ],
     nestedItems: [
       {
@@ -32,12 +29,7 @@ export const sidebarData = [
         link: "/user-management/all-users",
         icon: <GroupIcon />,
         activeIcon: <GroupIcon sx={{ color: "secondary.main" }} />,
-        roles: [
-          "role-admin",
-          "role-state-admin",
-          "role-program-head",
-          "role-director",
-        ],
+        roles: ["role-admin"],
       },
 
       {
@@ -46,7 +38,7 @@ export const sidebarData = [
         icon: <ManageAccountsIcon />,
         activeIcon: <ManageAccountsIcon sx={{ color: "secondary.main" }} />,
 
-        roles: ["role-admin", "role-program-head", "role-state-admin"],
+        roles: ["role-admin"],
       },
       {
         label: "Block-Coordinators",
@@ -54,12 +46,7 @@ export const sidebarData = [
         icon: <CompareArrowsIcon />,
         activeIcon: <CompareArrowsIcon sx={{ color: "secondary.main" }} />,
 
-        roles: [
-          "role-admin",
-          "role-program-head",
-          "role-state-admin",
-          "role-program-manager",
-        ],
+        roles: ["role-admin", "role-program-manager"],
       },
       {
         label: "Trainers",
@@ -67,12 +54,7 @@ export const sidebarData = [
         icon: <AutoFixNormalIcon />,
         activeIcon: <AutoFixNormalIcon sx={{ color: "secondary.main" }} />,
 
-        roles: [
-          "role-admin",
-          "role-program-head",
-          "role-state-admin",
-          "role-program-manager",
-        ],
+        roles: ["role-admin", "role-program-manager", "role-block-coordinator"],
       },
       {
         label: "Students",
@@ -82,9 +64,9 @@ export const sidebarData = [
 
         roles: [
           "role-admin",
-          "role-program-head",
-          "role-state-admin",
           "role-program-manager",
+          "role-block-coordinator",
+          "role-trainer",
         ],
       },
     ],
@@ -96,9 +78,9 @@ export const sidebarData = [
     activeIcon: <StorageIcon sx={{ color: "secondary.main" }} />,
     roles: [
       "role-admin",
-      "role-state-admin",
-      "role-program-head",
-      "role-director",
+      "role-program-manager",
+      "role-block-coordinator",
+      "role-trainer",
     ],
   },
   {
@@ -106,6 +88,11 @@ export const sidebarData = [
     link: "/meetings",
     icon: <MonitorRoundedIcon />,
     activeIcon: <MonitorRoundedIcon sx={{ color: "secondary.main" }} />,
-    roles: ["role-admin", "role-tnd", "role-program-head", "role-director"],
+    roles: [
+      "role-admin",
+      "role-program-manager",
+      "role-block-coordinator",
+      "role-trainer",
+    ],
   },
 ];

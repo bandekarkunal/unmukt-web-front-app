@@ -5,14 +5,14 @@ import PageTitle from "@/components/user_management/pageTitle";
 import PrimaryButton from "@/components/ui-components/buttons/primaryButton";
 import { Context } from "@/context/ContextProvider";
 import { FetchUsersListPromise } from "@/utils/apis/common/userList";
-import UsersList from "@/components/user_management/UsersList";
 import AddUserToRole from "@/components/modals/AddUserToRole";
 import AddUserModal from "@/components/modals/AddUserModal";
 import BulkUploadUsers from "@/components/modals/BulkUploadUsers";
 import { get, post } from "@/src/config/axiosClient";
 import { ErrorToast, SuccessToast } from "@/utils/toasts";
+import StudentsList from "@/components/user_management/listingComponents/studentsListing";
 
-const Trainers = () => {
+const Students = () => {
   const context = useContext(Context);
   const UserContext = context?.User;
   const GlobalDetailsContext = context?.GlobalDetails;
@@ -52,36 +52,19 @@ const Trainers = () => {
   };
 
   const handleCloseModalCallback = () => {
-    fetchUsers();
+    fetchUsersList();
     setOpenAddFacilitatorModal(false);
   };
 
-  const handleAddUserClick = (newUserDetails: any) => {
-    post("users", newUserDetails)
-      .then((res) => {
-        SuccessToast(res.data.message);
-        UserContext.dispatch({
-          type: "new-user-details",
-          value: {},
-        });
-        setOpenAddUserModal(false);
-        fetchUserList();
-      })
-      .catch((error) => {
-        ErrorToast(error.response.data);
-      });
-  };
-
-  const fetchUserList = async (status?: any) => {
+  const fetchUsersList = async (status?: any) => {
     let params: any = {};
-    status === "all" || !status ? null : (params.status = status);
-    await get("users", params).then((res) => {
+    await get("students", params).then((res) => {
       setUsersList(res.data.body);
     });
   };
 
   useEffect(() => {
-    fetchUsers();
+    fetchUsersList();
   }, [currentState]);
 
   return (
@@ -95,12 +78,12 @@ const Trainers = () => {
       <AddUserModal
         openModal={openAddUserModal}
         closeModal={handleCloseModal}
-        handleSubmitBtnClick={handleAddUserClick}
+        // handleSubmitBtnClick={handleAddUserClick}
       />
       <BulkUploadUsers
         openModal={openBulkUploadModal}
         closeModal={handleCloseBulkUploadModal}
-        callbackUsersAPI={fetchUserList}
+        callbackUsersAPI={fetchUsersList}
       />
       <Box>
         <PageTitle
@@ -132,16 +115,20 @@ const Trainers = () => {
             <PrimaryButton
               onClick={handleAddBtnClick}
               sx={{ height: "32px !important", fontSize: "11px" }}
-              label={`Add a user`}
+              label={`Add a student`}
             />
           </Box>
         </PageTitle>
         <Box padding={"20px 30px"}>
-          <UsersList userList={usersList} showReporter={true} />
+          <StudentsList
+            userList={usersList}
+            showReporter={true}
+            fetchUserCallback={fetchUsersList}
+          />
         </Box>
       </Box>
     </>
   );
 };
 
-export default Trainers;
+export default Students;

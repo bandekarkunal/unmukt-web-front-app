@@ -27,12 +27,12 @@ const MonitoringData: React.FunctionComponent<props> = ({
             key={index}
           >
             <Typography
-              sx={{ fontSize: "12px", color: "#616161", fontWeight: 500 }}
+              sx={{ fontSize: "12px", color: "#616161", fontWeight: 560 }}
             >
               {option?.key}
             </Typography>
             <Typography
-              sx={{ fontSize: "24px", color: "#391439", fontWeight: 500 }}
+              sx={{ fontSize: "24px", color: "#391439", fontWeight: 560 }}
             >
               {option?.value}
             </Typography>

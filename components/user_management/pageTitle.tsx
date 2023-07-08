@@ -41,7 +41,7 @@ const PageTitle: React.FunctionComponent<props> = ({
           <Box>
             <Typography
               fontSize={"10px"}
-              fontWeight={500}
+              fontWeight={560}
               color={"#919191"}
               marginBottom={2}
             >

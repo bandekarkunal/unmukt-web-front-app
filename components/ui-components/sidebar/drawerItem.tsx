@@ -58,7 +58,7 @@ const DrawerItem: React.FunctionComponent<props> = ({
         sx={{
           opacity: drawerOpen ? 1 : 0,
           fontSize: "13px",
-          fontWeight: 500,
+          fontWeight: 560,
           color:
             router.pathname === drawerItem?.link
               ? `${theme.palette.secondary.main} !important`

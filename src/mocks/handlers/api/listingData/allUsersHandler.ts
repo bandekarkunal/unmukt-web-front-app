@@ -15,7 +15,7 @@ export const userHandler = [
             last_name: "manager",
             email: "programmanager@gmail.com",
             phone: "0000000000",
-            status: "active",
+            state: "Karnataka",
             created_at: "2022-06-06T17:45:48.976Z",
             roles: [
               {
@@ -43,7 +43,7 @@ export const userHandler = [
             last_name: "manager",
             email: "programmanager@gmail.com",
             phone: "9090909090",
-            status: "inactive",
+            state: "Karnataka",
             created_at: "2022-06-06T17:45:48.976Z",
             roles: [
               {
@@ -69,15 +69,15 @@ export const userHandler = [
             uuid: "b4a38307-bdfe-4535-81d1-8984c72b0e89",
             first_name: "Block",
             last_name: "coordinator",
-            email: "blockcoorcinator@gmail.com",
+            email: "blockcoordinator@gmail.com",
             phone: "111111111",
-            status: "active",
+            state: "Karnataka",
             created_at: "2022-06-06T17:45:48.976Z",
             roles: [
               {
                 id: "10",
-                slug: "role-blockcoorcinator",
-                name: "blockcoorcinator",
+                slug: "role-blockcoordinator",
+                name: "blockcoordinator",
                 created_at: "2022-05-27T06:46:44.162Z",
                 updated_at: "2022-05-27T06:46:44.162Z",
                 deleted_at: null,
@@ -97,15 +97,15 @@ export const userHandler = [
             uuid: "b4a38307-bdfe-4535-81d1-8984c72b0e22",
             first_name: "Block",
             last_name: "coordinator",
-            email: "blockcoorcinator@gmail.com",
+            email: "blockcoordinator@gmail.com",
             phone: "9191919191",
-            status: "inactive",
+            state: "Karnataka",
             created_at: "2022-06-06T17:45:48.976Z",
             roles: [
               {
                 id: "10",
-                slug: "role-blockcoorcinator",
-                name: "blockcoorcinator",
+                slug: "role-blockcoordinator",
+                name: "blockcoordinator",
                 created_at: "2022-05-27T06:46:44.162Z",
                 updated_at: "2022-05-27T06:46:44.162Z",
                 deleted_at: null,
@@ -127,7 +127,7 @@ export const userHandler = [
             last_name: "1",
             email: "trainer1007@gmail.com",
             phone: "2222222222",
-            status: "active",
+            state: "Karnataka",
             created_at: "2022-06-06T17:45:48.976Z",
             roles: [
               {
@@ -155,7 +155,7 @@ export const userHandler = [
             last_name: "2",
             email: "trainer2007@gmail.com",
             phone: "992929292",
-            status: "inactive",
+            state: "Karnataka",
             created_at: "2022-06-06T17:45:48.976Z",
             roles: [
               {
@@ -183,7 +183,7 @@ export const userHandler = [
             last_name: "1",
             email: "student1@gmail.com",
             phone: "333333333",
-            status: "active",
+            state: "Karnataka",
             created_at: "2022-06-06T17:45:48.976Z",
             roles: [
               {
@@ -211,7 +211,7 @@ export const userHandler = [
             last_name: "2",
             email: "student2@gmail.com",
             phone: "9494949494",
-            status: "inactive",
+            state: "Karnataka",
             created_at: "2022-06-06T17:45:48.976Z",
             roles: [
               {

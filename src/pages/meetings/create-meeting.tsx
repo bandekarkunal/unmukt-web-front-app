@@ -105,11 +105,11 @@ const CreateCurriculum: NextPage<CreateCurriculumProps> = ({ query }) => {
       />
       <Box>
         <PageTitle
-          route={"HOME / NURTURE PHASE / TRAINING / CURRICULUM / CREATE"}
-          title={"Create a new Topic"}
+          route={"HOME / Meeting / CREATE"}
+          title={"Create a new Meeting"}
         >
           <Box display={"flex"} gap={"16px"}>
-            <PrimaryButton
+            {/* <PrimaryButton
               variant={"outlined"}
               sx={{
                 border: "2px solid #7d287d",
@@ -118,11 +118,11 @@ const CreateCurriculum: NextPage<CreateCurriculumProps> = ({ query }) => {
               }}
               label={"SAVE AS DRAFT"}
               onClick={handleSaveDraftClick}
-            />
+            /> */}
             <PrimaryButton
               variant={"contained"}
               sx={{ fontSize: "11px !important", height: "40px !important" }}
-              label={"PUBLISH TOPIC"}
+              label={"CREATE MEETING"}
               onClick={() => setOpenConfirmationModal(true)}
             />
           </Box>

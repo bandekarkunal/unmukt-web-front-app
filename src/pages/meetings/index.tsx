@@ -7,7 +7,6 @@ import PageTitle from "@/components/user_management/pageTitle";
 import { ManageUserRoleSpecific } from "@/utils/dataModifiers/ConditinalRenderingForRoles";
 import PrimaryButton from "@/components/ui-components/buttons/primaryButton";
 import EmptyState from "@/components/ui-components/emptyState";
-import CurriculumsList from "@/components/curriculums/curriculums-list";
 import MeetingsList from "@/components/meetings/meetings-list";
 
 const Curriculum = () => {
@@ -19,7 +18,7 @@ const Curriculum = () => {
   const [topicsList, setTopicsList] = useState<any | []>([]);
 
   const handleOpenCreateNewCurriculum = () => {
-    router.push("/curriculums/create-curriculum");
+    router.push("/meetings/create-meeting");
   };
 
   const fetchCurriculumsList = () => {
@@ -64,14 +63,17 @@ const Curriculum = () => {
                 padding: "0 30px",
               }}
             >
-              {ManageUserRoleSpecific(["role-tnd"], userProfile?.roles?.[0]) ? (
+              {ManageUserRoleSpecific(
+                ["role-trainer"],
+                userProfile?.roles?.[0]
+              ) ? (
                 <EmptyState
                   subtitle={
                     "There are no meetings created, click the button down below to create a new meeting"
                   }
                   title={""}
                   buttonClick={handleOpenCreateNewCurriculum}
-                  buttonLabel="CREATE A NEW Meeting"
+                  buttonLabel="CREATE A NEW MEETING"
                 />
               ) : (
                 <EmptyState

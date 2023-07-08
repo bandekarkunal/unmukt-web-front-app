@@ -64,7 +64,7 @@ const QuillEditor: NextPage<Props> = ({
 
   return (
     <>
-      {/* <Box>
+      <Box>
         <InputLabel
           sx={{
             fontSize: "13px !important",
@@ -80,8 +80,7 @@ const QuillEditor: NextPage<Props> = ({
             </Typography>
           )}
         </InputLabel>
-      </Box>
-      <Box>
+
         <ReactQuill
           value={value}
           modules={{
@@ -105,7 +104,7 @@ const QuillEditor: NextPage<Props> = ({
         mt={0.2}
       >
         {helperText}
-      </Typography> */}
+      </Typography>
     </>
   );
 };

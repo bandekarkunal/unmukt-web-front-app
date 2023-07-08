@@ -13,7 +13,7 @@ const SingleCurriculumBody: React.FunctionComponent<props> = ({
       <Typography
         sx={{
           color: "#495057",
-          fontWeight: 500,
+          fontWeight: 560,
           textTransform: "uppercase",
           mb: 2,
         }}

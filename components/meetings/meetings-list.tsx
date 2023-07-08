@@ -22,57 +22,48 @@ const MeetingsList: React.FunctionComponent<props> = ({
   const regex = /<(.|\n)*?>/g;
 
   const handleViewDetailsClick = (uuid: string) => {
-    if (type === "peer-member") {
-      router.push(
-        `/nurture-phase/training/peer-member-training/single-curriculum-details/${uuid}`
-      );
-      return;
-    }
-    router.push(`/nurture-phase/training/curriculum/${uuid}`);
+    router.push(`/meetings/${uuid}`);
   };
 
   const columns: GridColDef[] = [
     {
       field: "name",
-      headerName: "Title",
-      flex: 0.4,
+      headerName: "Meeting date",
+      flex: 0.2,
       renderCell: (params: GridRenderCellParams) => (
-        <Typography sx={{ fontSize: 13, color: "#232323", fontWeight: 400 }}>
+        <Typography sx={{ fontSize: 13, color: "#232323", fontWeight: 560 }}>
           {params.row.name}
         </Typography>
       ),
     },
     {
       field: "desc",
-      headerName: "Description",
-      flex: 1.2,
+      headerName: "Meeting topic name",
+      flex: 0.7,
       renderCell: (params: GridRenderCellParams) => (
-        <Typography sx={{ fontSize: 13, color: "#565656", fontWeight: 400 }}>
+        <Typography sx={{ fontSize: 13, color: "#565656", fontWeight: 560 }}>
           {params?.row?.description?.replace(regex, "")?.substr(0, 75)}
         </Typography>
       ),
     },
     {
-      field: "id",
-      headerName: "Meeting Number",
+      field: "id3",
+      headerName: "Trainer name",
       flex: 0.3,
-      renderCell: (params: GridRenderCellParams) => (
-        <Box sx={{ margin: "0 auto", marginRight: "70%" }}>
-          <Typography
-            sx={{
-              fontSize: 13,
-              color: "#565656",
-              fontWeight: 400,
-            }}
-          >
-            {params?.row?.id}
-          </Typography>
-        </Box>
-      ),
     },
 
     {
+      field: "id2",
+      headerName: "Number of Meetings conducted",
+      flex: 0.5,
+    },
+    {
       field: "action",
+      headerName: "Number of Topics completed",
+      flex: 0.4,
+    },
+    {
+      field: "id4",
       headerName: "Action",
       flex: 0.2,
       renderCell: (params: GridRenderCellParams) => (

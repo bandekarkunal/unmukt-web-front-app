@@ -36,4 +36,11 @@ export const newUserForm = [
     type: "text",
     colSize: 12,
   },
+  {
+    id: "state",
+    name: "state",
+    label: "State",
+    type: "text",
+    colSize: 12,
+  },
 ];

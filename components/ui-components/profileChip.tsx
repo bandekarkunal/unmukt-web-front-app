@@ -6,7 +6,6 @@ import { Context } from "../../context/ContextProvider";
 import { useRouter } from "next/router";
 import { SuccessToast } from "../../utils/toasts";
 import useMediaQuery from "@mui/material/useMediaQuery";
-
 const ProfileChip = () => {
   const context = useContext(Context);
   const router = useRouter();
@@ -52,7 +51,7 @@ const ProfileChip = () => {
           <Typography
             sx={{
               fontSize: "12px",
-              fontWeight: 500,
+              fontWeight: 560,
               paddingX: "8px",
               color: "#313131",
             }}

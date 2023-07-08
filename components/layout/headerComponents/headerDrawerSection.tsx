@@ -43,7 +43,7 @@ const HeaderDrawerSection: React.FunctionComponent<props> = ({
           <Link href="/home" passHref>
             <Image
               src="/assets/milaanLogo.png"
-              width={95}
+              width={105}
               height={24}
               alt="logo"
             />
@@ -65,9 +65,9 @@ const HeaderDrawerSection: React.FunctionComponent<props> = ({
             </IconButton>
           ) : null}
         </Box>{" "}
-        <Typography variant="h5" sx={{ color: "#7d287d", fontWeight: "700" }}>
+        {/* <Typography variant="h5" sx={{ color: "#7d287d", fontWeight: "700" }}>
           Unmukt
-        </Typography>
+        </Typography> */}
       </Box>
     </Box>
   );

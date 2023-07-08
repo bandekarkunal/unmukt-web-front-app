@@ -2,11 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { Box } from "@mui/material";
 import { Context } from "@/context/ContextProvider";
 import PrimaryButton from "@/components/ui-components/buttons/primaryButton";
-import UsersList from "@/components/user_management/UsersList";
 import PageTitle from "@/components/user_management/pageTitle";
 import AddUserToRole from "@/components/modals/AddUserToRole";
 import { ManageUserRoleSpecific } from "@/utils/dataModifiers/ConditinalRenderingForRoles";
 import { FetchUsersListPromise } from "@/utils/apis/common/userList";
+import BlockCoordinatesList from "@/components/user_management/listingComponents/block-coordinatorsListing";
+import { get } from "@/src/config/axiosClient";
 
 const BlockCoordinators = () => {
   const context = useContext(Context);
@@ -22,21 +23,20 @@ const BlockCoordinators = () => {
     setOpenAddCoordinatorModal(true);
   };
 
-  const fetchUsers = () => {
-    FetchUsersListPromise("role-block-coordinator", "").then(
-      (response: any) => {
-        setUsersList(response);
-      }
-    );
+  const fetchUsersList = async (status?: any) => {
+    let params: any = {};
+    await get("block-coordinators", params).then((res) => {
+      setUsersList(res.data.body);
+    });
   };
 
   const handleCloseModalCallback = () => {
-    fetchUsers();
+    fetchUsersList();
     setOpenAddCoordinatorModal(false);
   };
 
   useEffect(() => {
-    fetchUsers();
+    fetchUsersList();
   }, [currentState]);
   return (
     <>
@@ -65,7 +65,11 @@ const BlockCoordinators = () => {
         </PageTitle>
 
         <Box padding={"20px 30px"}>
-          <UsersList userList={usersList} showReporter={true} />
+          <BlockCoordinatesList
+            userList={usersList}
+            showReporter={true}
+            fetchUserCallback={fetchUsersList}
+          />
         </Box>
       </Box>
     </>
