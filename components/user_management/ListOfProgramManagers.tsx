@@ -40,11 +40,9 @@ const ListOfProgramManagers: React.FunctionComponent<props> = ({
   };
 
   const fetchProgramManagerList = () => {
-    FetchUsersListPromise(state_id, "role-program-manager", "").then(
-      (response) => {
-        setStateDependentProgramManagerList(response);
-      }
-    );
+    FetchUsersListPromise("role-program-manager", "").then((response) => {
+      setStateDependentProgramManagerList(response);
+    });
   };
 
   useEffect(() => {

@@ -25,54 +25,33 @@ const UsersList: React.FunctionComponent<props> = ({
     {
       field: "name",
       headerName: "Name",
-      flex: 0.6,
+      flex: 0.9,
       valueGetter: (params) =>
         params.row.first_name + " " + params.row.last_name,
     },
     {
       field: "email",
       headerName: "Email",
-      flex: 0.7,
+      flex: 0.9,
     },
     {
       field: "phone",
       headerName: "Phone",
-      flex: 0.5,
-    },
-    {
-      field: "state",
-      headerName: "State",
-      flex: 0.5,
-      valueGetter: (params) =>
-        params.row?.state_member ? params.row?.state_member?.state?.name : "-",
+      flex: 0.6,
     },
   ];
-
-  const reporter: any = {
-    field: "reporter",
-    headerName: "Reporter Name",
-    flex: 0.7,
-    valueGetter: (params: GridValueGetterParams) =>
-      params.row?.state_member?.manager?.first_name +
-      " " +
-      params.row?.state_member?.manager?.last_name,
-  };
-
-  if (showReporter) {
-    columns.splice(3, 0, reporter);
-  }
 
   const additionalCols = [
     {
       field: "role",
       headerName: "Roles",
-      flex: 0.5,
+      flex: 0.6,
       valueGetter: (params: GridValueGetterParams) => params.row.roles[0]?.name,
     },
     {
       field: "status",
       headerName: "Status",
-      flex: 0.4,
+      flex: 0.6,
       renderCell: (params: GridRenderCellParams) => (
         <Typography sx={{ textAlign: "center" }}>
           {(

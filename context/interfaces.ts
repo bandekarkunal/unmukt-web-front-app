@@ -12,8 +12,6 @@ export interface drawerReducer {
 }
 
 export interface globalDetails {
-  stateList: any;
-  currentState: any;
   rolesList: any;
   userProfile: any;
 }

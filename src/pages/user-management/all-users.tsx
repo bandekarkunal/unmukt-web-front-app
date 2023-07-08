@@ -58,11 +58,9 @@ const AllUsers = () => {
       });
   };
 
-  const fetchUserList = (status?: any) => {
+  const fetchUserList = async (status?: any) => {
     let params: any = {};
-    currentState?.id ? (params.state_id = currentState?.id) : null;
-    status === "all" || !status ? null : (params.status = status);
-    get("users", params).then((res) => {
+    await get("users", params).then((res) => {
       setUsersList(res.data.body);
     });
   };
@@ -97,7 +95,7 @@ const AllUsers = () => {
       <Box>
         <PageTitle
           route={"USER MANAGEMENT / ALL USERS"}
-          title={"All users"}
+          title={"All Users"}
           subTitle={"Showing various statistics "}
         >
           {showAddUserBtn ? (

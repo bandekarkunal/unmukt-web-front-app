@@ -36,11 +36,9 @@ const ListOfProgramCoordinators: React.FunctionComponent<props> = ({
   };
 
   const fetchProgramCoordinatorsList = () => {
-    FetchUsersListPromise(state_id, "role-program-coordinator", "").then(
-      (response) => {
-        setStateDependentProgramCoordinatorsList(response);
-      }
-    );
+    FetchUsersListPromise("role-program-coordinator", "").then((response) => {
+      setStateDependentProgramCoordinatorsList(response);
+    });
   };
 
   useEffect(() => {

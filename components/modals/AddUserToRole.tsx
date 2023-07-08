@@ -87,7 +87,7 @@ const AddUserToRole: React.FunctionComponent<props> = ({
 
   const handleStateChange = (response: string) => {
     setSelectedState(response);
-    FetchUsersListPromise(response, "", roleToMap).then((response) => {
+    FetchUsersListPromise("", roleToMap).then((response) => {
       setStateDependentUserList(response);
     });
   };
@@ -144,18 +144,16 @@ const AddUserToRole: React.FunctionComponent<props> = ({
 
   useEffect(() => {
     if (currentState?.id) {
-      FetchUsersListPromise(currentState?.id, "", roleToMap).then(
-        (response) => {
-          setStateDependentUserList(response);
-        }
-      );
+      FetchUsersListPromise("", roleToMap).then((response) => {
+        setStateDependentUserList(response);
+      });
       setSelectedState(currentState?.id);
     }
   }, [currentState?.id]);
 
   useEffect(() => {
     if (centralRole && openModal) {
-      FetchUsersListPromise("", "", roleToMap).then((response) => {
+      FetchUsersListPromise("", roleToMap).then((response) => {
         setStateDependentUserList(response);
       });
     }

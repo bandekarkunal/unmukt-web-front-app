@@ -40,23 +40,15 @@ const BulkUploadUsers: React.FunctionComponent<props> = ({
 
   const { stateList, rolesList, currentState } = GlobalDetailsContext?.state;
 
-  const [selectedState, setSelectedState] = useState("default");
-
   const [selectedFile, setSelectedFile] = useState<any>(null);
-
-  const handleStateChangeCallback = (response: any) => {
-    setSelectedState(response);
-  };
 
   const handleBulkUploadBtnClick = () => {
     let formData = new FormData();
     formData.set("file", selectedFile);
-    formData.set("state_id", selectedState);
 
     postForm("users/upload", formData).then(
       (res) => {
         setSelectedFile(null);
-        setSelectedState("default");
         closeModal();
         SuccessToast("Users have been added successfully");
         callbackUsersAPI();
@@ -72,17 +64,9 @@ const BulkUploadUsers: React.FunctionComponent<props> = ({
 
   const handleCloseModal = () => {
     setSelectedFile(null);
-    currentState?.id
-      ? setSelectedState(currentState?.id)
-      : setSelectedState("default");
+
     closeModal();
   };
-
-  useEffect(() => {
-    if (currentState?.id) {
-      setSelectedState(currentState?.id);
-    }
-  }, [currentState?.id]);
 
   return (
     <Dialog
@@ -167,13 +151,6 @@ const BulkUploadUsers: React.FunctionComponent<props> = ({
               </Typography>
             </Stack>
           </a>
-        </Box>
-
-        <Box marginBottom={3}>
-          <SelectState
-            handleChangeCallback={handleStateChangeCallback}
-            state_id={selectedState}
-          />
         </Box>
 
         <PrimaryButton

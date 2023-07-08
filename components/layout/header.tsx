@@ -6,7 +6,6 @@ import StateMenu from "../ui-components/stateMenu";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { useRouter } from "next/router";
 import {
-  fetchStateList,
   fetchUserProfile,
   fetchRolesList,
 } from "../../utils/apis/global/globalAPICalls";
@@ -51,13 +50,6 @@ const Header = () => {
     useState<boolean>(false);
 
   const fetchGlobalDetails = () => {
-    if (!stateList.length)
-      fetchStateList().then((stateList) => {
-        GlobalDetailsContext?.dispatch({
-          type: "state-list",
-          value: stateList,
-        });
-      });
     if (!rolesList.length) {
       fetchRolesList().then((rolesList) => {
         GlobalDetailsContext?.dispatch({

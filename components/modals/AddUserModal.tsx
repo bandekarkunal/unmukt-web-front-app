@@ -241,7 +241,7 @@ const AddUserModal: React.FunctionComponent<props> = ({
               onChange={(response: any) =>
                 handleChangeCallback("role_slug", response)
               }
-              disabled={formData?.role_slug === "role-girl-icon"}
+              disabled={formData?.role_slug === "role-student"}
               data={rolesList}
               value={formData?.role_slug ? formData?.role_slug : "default"}
             />

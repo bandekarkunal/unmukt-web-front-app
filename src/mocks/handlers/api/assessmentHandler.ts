@@ -6,7 +6,6 @@ export const assessmentHandler = [
   rest.get(`${URL}/identify/dashboards/assessment`, (req, res, ctx) => {
     return res(
       ctx.status(200),
-      ctx.delay(3000),
       ctx.json({
         body: {
           daily_target: 0,

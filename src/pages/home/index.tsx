@@ -27,7 +27,6 @@ const Dashboard = () => {
     });
     let params: any = {};
 
-    currentState === "All States" ? null : (params.state_id = currentState?.id);
     get("identify/dashboards/assessment", params).then(
       (res) => {
         setDashboardDetails(res.data.body);

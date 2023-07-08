@@ -12,7 +12,8 @@ const ProgramManagers = () => {
   const context = useContext(Context);
 
   const GlobalContextDetails = context?.GlobalDetails;
-  const { currentState, userProfile } = GlobalContextDetails?.state;
+  console.log("first", GlobalContextDetails);
+  const { userProfile } = GlobalContextDetails?.state;
   const [openAssignRoleModal, setOpenAssignRoleModal] =
     useState<boolean>(false);
 
@@ -28,18 +29,14 @@ const ProgramManagers = () => {
   };
 
   const fetchUsersList = () => {
-    FetchUsersListPromise(
-      currentState?.id ? currentState?.id : "",
-      "role-program-manager",
-      ""
-    ).then((response: any) => {
+    FetchUsersListPromise("role-program-manager", "").then((response: any) => {
       setUsersList(response);
     });
   };
 
   useEffect(() => {
     fetchUsersList();
-  }, [currentState]);
+  }, []);
 
   return (
     <>
@@ -55,7 +52,7 @@ const ProgramManagers = () => {
           title={"Program Managers"}
           subTitle={"Showing various statistics from various states below"}
         >
-          {ManageUserRoleSpecific(
+          {/* {ManageUserRoleSpecific(
             ["role-admin", "role-state-admin"],
             userProfile?.roles?.[0]
           ) ? (
@@ -64,7 +61,7 @@ const ProgramManagers = () => {
               sx={{ height: "32px !important", fontSize: "11px" }}
               onClick={handleAddManagerClick}
             />
-          ) : null}
+          ) : null} */}
         </PageTitle>
         <Box sx={{ padding: "20px 30px" }}>
           <UsersList userList={usersList} />

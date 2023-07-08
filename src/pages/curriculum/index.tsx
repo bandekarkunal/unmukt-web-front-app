@@ -18,15 +18,12 @@ const Curriculum = () => {
   const [topicsList, setTopicsList] = useState<any | []>([]);
 
   const handleOpenCreateNewCurriculum = () => {
-    router.push("/curriculums/create-curriculum");
+    router.push("/curriculum/create-curriculum");
   };
 
   const fetchCurriculumsList = () => {
     let params: any = {};
-    params.state_id = currentState?.id ? currentState?.id : null;
-    params.type = "gi_training";
-
-    get("nurture/training-curriculums", params).then((res: any) => {
+    get("curriculums", params).then((res: any) => {
       setTopicsList(res.data.body);
     });
   };
@@ -47,7 +44,7 @@ const Curriculum = () => {
           userProfile?.roles?.[0]
         ) ? null : (
           <PrimaryButton
-            label={"CREATE A NEW TOPIC"}
+            label={"CREATE A NEW CURRICULUM"}
             sx={{ fontSize: "11px !important" }}
             onClick={handleOpenCreateNewCurriculum}
           />

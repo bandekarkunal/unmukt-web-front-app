@@ -23,7 +23,7 @@ const MneTable: React.FunctionComponent<props> = ({
       }}
     >
       <Grid container>
-        <Grid item xs={12} lg={6} sx={{ borderRight: "1px solid #e0e0e0" }}>
+        <Grid item xs={12} lg={12} sx={{ borderRight: "1px solid #e0e0e0" }}>
           <Box
             sx={{
               borderBottom: "1px solid #e0e0e0",
@@ -31,7 +31,7 @@ const MneTable: React.FunctionComponent<props> = ({
               height: "54px",
               display: "flex",
               alignItems: "center",
-              padding: "0 36px",
+              padding: "0 16px",
               justifyContent: "space-between",
               borderRadius: "4px 4px 0 0",
             }}
@@ -44,34 +44,13 @@ const MneTable: React.FunctionComponent<props> = ({
                 lineHeight: 1.5,
               }}
             >
-              ASSESSMENT OVERVIEW DETAILS
+              OVERVIEW DETAILS
             </Typography>
           </Box>
           <MonitoringData
             assessmentStatistics={assessmentStatistics}
             is_assessor={is_assessor}
           />
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <Box
-            sx={{
-              borderBottom: "1px solid #e0e0e0",
-              backgroundColor: "#fcfcfc",
-              height: "54px",
-              display: "flex",
-              alignItems: "center",
-              padding: "0 36px",
-              justifyContent: "space-between",
-              borderRadius: "4px 4px 0 0",
-            }}
-          >
-            <Typography
-              sx={{ fontSize: "12px", color: "#7d398d", fontWeight: 700 }}
-            >
-              APPLICATION MONITORING STATISTICS
-            </Typography>
-          </Box>
-          <MonitoringStatistics colorStatistics={colorStatistics} />
         </Grid>
       </Grid>
     </Box>

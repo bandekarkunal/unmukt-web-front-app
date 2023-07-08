@@ -40,7 +40,7 @@ const HeaderProfileSection: React.FunctionComponent<props> = ({
             color={"secondary"}
             display={"inline-block"}
           >
-            admin@milaan.org
+            admin@unmukt.org
           </Typography>
         </Box>
       )}

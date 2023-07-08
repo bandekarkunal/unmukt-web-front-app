@@ -13,6 +13,7 @@ const DatagridComponent: React.FunctionComponent<props> = ({
   list = [],
   sorting,
 }) => {
+  console.log(list);
   return (
     <Box sx={{ height: 650 }}>
       <DataGrid

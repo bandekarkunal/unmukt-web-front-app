@@ -8,6 +8,7 @@ import { ManageUserRoleSpecific } from "@/utils/dataModifiers/ConditinalRenderin
 import PrimaryButton from "@/components/ui-components/buttons/primaryButton";
 import EmptyState from "@/components/ui-components/emptyState";
 import CurriculumsList from "@/components/curriculums/curriculums-list";
+import MeetingsList from "@/components/meetings/meetings-list";
 
 const Curriculum = () => {
   const router: any = useRouter();
@@ -23,10 +24,7 @@ const Curriculum = () => {
 
   const fetchCurriculumsList = () => {
     let params: any = {};
-    params.state_id = currentState?.id ? currentState?.id : null;
-    params.type = "gi_training";
-
-    get("nurture/training-curriculums", params).then((res: any) => {
+    get("meetings", params).then((res: any) => {
       setTopicsList(res.data.body);
     });
   };
@@ -38,16 +36,17 @@ const Curriculum = () => {
   return (
     <Box>
       <PageTitle
-        route={"CURRICULUM"}
-        title={"Curriculum"}
-        subTitle={"View all curriculums created"}
+        route={"MEETINGS"}
+        title={"Meetings"}
+        subTitle={"View all meetings created"}
       >
+        {" "}
         {ManageUserRoleSpecific(
-          ["role-facilitator"],
+          ["role-trainer"],
           userProfile?.roles?.[0]
         ) ? null : (
           <PrimaryButton
-            label={"CREATE A NEW TOPIC"}
+            label={"CREATE A NEW MEETING"}
             sx={{ fontSize: "11px !important" }}
             onClick={handleOpenCreateNewCurriculum}
           />
@@ -55,7 +54,7 @@ const Curriculum = () => {
       </PageTitle>
       <Box p={"16px 30px"}>
         <Box position={"relative"}>
-          <CurriculumsList curriculumsList={topicsList} />
+          <MeetingsList meetingsList={topicsList} />
           {!topicsList?.length ? (
             <Box
               sx={{
@@ -68,17 +67,17 @@ const Curriculum = () => {
               {ManageUserRoleSpecific(["role-tnd"], userProfile?.roles?.[0]) ? (
                 <EmptyState
                   subtitle={
-                    "There are no topics created, click the button down below to create a new topic"
+                    "There are no meetings created, click the button down below to create a new meeting"
                   }
                   title={""}
                   buttonClick={handleOpenCreateNewCurriculum}
-                  buttonLabel="CREATE A NEW Topic"
+                  buttonLabel="CREATE A NEW Meeting"
                 />
               ) : (
                 <EmptyState
-                  title={"No curriculums present."}
+                  title={"No meetings present."}
                   subtitle={
-                    "Currently, there are no topics created. Please contact the training and Design team."
+                    "Currently, there are no meetings created. Please contact the training and Design team."
                   }
                 />
               )}

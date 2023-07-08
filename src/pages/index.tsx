@@ -26,7 +26,6 @@ const AdminSignIn = () => {
 
   const handleRegister = async (values: any) => {
     await noAuthPost(`auth/user/signin`, values).then((res: any) => {
-      console.log("first", res.data);
       localStorage.setItem("redloftoken", res.data.body.token);
       router.push(`/home`, `/home`);
     }),

@@ -23,13 +23,11 @@ const BlockCoordinators = () => {
   };
 
   const fetchUsers = () => {
-    FetchUsersListPromise(
-      currentState?.id ? currentState?.id : "",
-      "role-program-coordinator",
-      ""
-    ).then((response: any) => {
-      setUsersList(response);
-    });
+    FetchUsersListPromise("role-block-coordinator", "").then(
+      (response: any) => {
+        setUsersList(response);
+      }
+    );
   };
 
   const handleCloseModalCallback = () => {
@@ -40,7 +38,6 @@ const BlockCoordinators = () => {
   useEffect(() => {
     fetchUsers();
   }, [currentState]);
-  console.log("first", userProfile);
   return (
     <>
       <AddUserToRole
@@ -55,7 +52,7 @@ const BlockCoordinators = () => {
           title={"Block-Coordinators"}
           subTitle={"Showing various statistics from various states below"}
         >
-          {ManageUserRoleSpecific(
+          {/* {ManageUserRoleSpecific(
             ["role-admin", "role-state-admin", "role-program-manager"],
             userProfile?.roles[0]
           ) ? (
@@ -64,7 +61,7 @@ const BlockCoordinators = () => {
               sx={{ height: "32px !important", fontSize: "11px" }}
               onClick={handleAddCoordinatorClick}
             />
-          ) : null}
+          ) : null} */}
         </PageTitle>
 
         <Box padding={"20px 30px"}>

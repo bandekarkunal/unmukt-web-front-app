@@ -23,11 +23,7 @@ const Trainers = () => {
   };
 
   const fetchUsers = () => {
-    FetchUsersListPromise(
-      currentState?.id ? currentState?.id : "",
-      "role-facilitator",
-      ""
-    ).then((response: any) => {
+    FetchUsersListPromise("role-trainer", "").then((response: any) => {
       setUsersList(response);
     });
   };

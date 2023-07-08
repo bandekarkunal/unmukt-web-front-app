@@ -31,16 +31,3 @@ export const fetchUserProfile = () => {
     );
   });
 };
-
-export const fetchStateList = () => {
-  return new Promise((resolve, reject) => {
-    get("api/data/states").then(
-      (res) => {
-        resolve(res.data.body);
-      },
-      (err) => {
-        reject(err.response.data);
-      }
-    );
-  });
-};

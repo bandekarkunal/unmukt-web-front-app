@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Link from "next/link";
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import { Context } from "../../../context/ContextProvider";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -43,7 +43,7 @@ const HeaderDrawerSection: React.FunctionComponent<props> = ({
           <Link href="/home" passHref>
             <Image
               src="/assets/milaanLogo.png"
-              width={105}
+              width={95}
               height={24}
               alt="logo"
             />
@@ -64,7 +64,10 @@ const HeaderDrawerSection: React.FunctionComponent<props> = ({
               <MenuIcon color={"secondary"} />
             </IconButton>
           ) : null}
-        </Box>
+        </Box>{" "}
+        <Typography variant="h5" sx={{ color: "#7d287d", fontWeight: "700" }}>
+          Unmukt
+        </Typography>
       </Box>
     </Box>
   );
