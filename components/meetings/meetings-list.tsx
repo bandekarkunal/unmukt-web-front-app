@@ -37,8 +37,8 @@ const MeetingsList: React.FunctionComponent<props> = ({
       ),
     },
     {
-      field: "desc",
-      headerName: "Meeting topic name",
+      field: "description",
+      headerName: "Topic Description",
       flex: 0.7,
       renderCell: (params: GridRenderCellParams) => (
         <Typography sx={{ fontSize: 13, color: "#565656", fontWeight: 560 }}>
@@ -47,20 +47,24 @@ const MeetingsList: React.FunctionComponent<props> = ({
       ),
     },
     {
-      field: "id3",
+      field: "trainer_name",
       headerName: "Trainer name",
-      flex: 0.3,
+      flex: 0.5,
+      headerAlign: "center",
+      align: "center",
     },
 
     {
-      field: "id2",
+      field: "number_of_meetings",
       headerName: "Number of Meetings conducted",
-      flex: 0.5,
+      flex: 0.3,
+      align: "center",
     },
     {
-      field: "action",
+      field: "number_of_topics_completed",
       headerName: "Number of Topics completed",
-      flex: 0.4,
+      flex: 0.3,
+      align: "center",
     },
     {
       field: "id4",

@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-import { URL } from "../../../config/mockConfig";
+import { URL } from "../../../../config/mockConfig";
 
 export const profileHandlers = [
   rest.get(`${URL}/auth/user/profile`, (req, res, ctx) => {
@@ -27,7 +27,7 @@ export const profileHandlers = [
           deleted_at: null,
           state_member: null,
           profile: null,
-          roles: ["role-trainer"],
+          roles: ["role-admin"],
           is_assessor: false,
           is_supporter: false,
           is_lead: false,

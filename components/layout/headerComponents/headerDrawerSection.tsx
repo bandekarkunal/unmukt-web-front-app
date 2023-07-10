@@ -65,9 +65,9 @@ const HeaderDrawerSection: React.FunctionComponent<props> = ({
             </IconButton>
           ) : null}
         </Box>{" "}
-        {/* <Typography variant="h5" sx={{ color: "#7d287d", fontWeight: "700" }}>
+        <Typography variant="h5" sx={{ color: "#7d287d", fontWeight: "700" }}>
           Unmukt
-        </Typography> */}
+        </Typography>
       </Box>
     </Box>
   );

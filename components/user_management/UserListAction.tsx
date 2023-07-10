@@ -7,6 +7,7 @@ import ConfirmationModal from "../modals/confirmationModal";
 import AddUserModal from "../modals/AddUserModal";
 import { ErrorToast, SuccessToast } from "../../utils/toasts";
 import { put } from "@/src/config/axiosClient";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 interface UserListActionProps {
   userData: any;
@@ -112,7 +113,7 @@ const UserListAction: React.FunctionComponent<UserListActionProps> = ({
             }}
           />
         </IconButton>
-        {userData?.status === "active" ? (
+        {true ? (
           <IconButton
             sx={{
               backgroundColor: `${theme.palette.secondary.light} !important`,
@@ -120,10 +121,10 @@ const UserListAction: React.FunctionComponent<UserListActionProps> = ({
             }}
             onClick={() => handleOpenConfirmation("block")}
           >
-            <DoNotDisturbIcon
+            <DeleteIcon
+              fontSize="small"
               sx={{
-                fontSize: "16px !important",
-                color: theme.palette.primary.main,
+                color: "#391439",
               }}
             />
           </IconButton>
@@ -139,6 +140,14 @@ const UserListAction: React.FunctionComponent<UserListActionProps> = ({
               sx={{
                 fontSize: "16px !important",
                 color: theme.palette.primary.main,
+              }}
+            />
+            <DeleteIcon
+              fontSize="large"
+              sx={{
+                color: "#391439",
+                backgroundColor: "#eae3f1",
+                padding: "8px",
               }}
             />
           </IconButton>

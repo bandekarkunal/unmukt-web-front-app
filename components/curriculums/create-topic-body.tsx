@@ -3,6 +3,7 @@ import { Container } from "@mui/material";
 import { Context } from "@/context/ContextProvider";
 import CustomInputField from "../ui-components/customInputField";
 import QuillEditor from "../ui-components/quillEditor";
+import "react-quill/dist/quill.snow.css";
 
 const CreateTopicBody = () => {
   const context: any = useContext(Context);

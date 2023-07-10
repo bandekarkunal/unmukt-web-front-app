@@ -1,6 +1,5 @@
+import { URL } from "@/src/config/mockConfig";
 import { rest } from "msw";
-
-import { URL } from "../../../config/mockConfig";
 
 export const meetingHandlers = [
   rest.get(`${URL}/meetings`, (req, res, ctx) => {
@@ -14,6 +13,9 @@ export const meetingHandlers = [
             description: "This is the history of milaan for topic one",
             sequence: 1,
             created_at: "2022-12-01T13:00:56.858Z",
+            trainer_name: "trainer 1",
+            number_of_meetings: "7",
+            number_of_topics_completed: "8",
             updated_at: "2022-12-01T13:02:00.149Z",
             deleted_at: null,
           },
@@ -24,6 +26,9 @@ export const meetingHandlers = [
             sequence: 1,
             created_at: "2022-12-01T13:01:02.939Z",
             updated_at: "2022-12-01T13:02:17.412Z",
+            trainer_name: "trainer 2",
+            number_of_meetings: "2",
+            number_of_topics_completed: "4",
             deleted_at: null,
           },
           {
@@ -33,6 +38,9 @@ export const meetingHandlers = [
             sequence: 1,
             created_at: "2022-12-01T13:01:06.941Z",
             updated_at: "2022-12-01T13:02:57.316Z",
+            trainer_name: "trainer 3",
+            number_of_meetings: "9",
+            number_of_topics_completed: "14",
             deleted_at: null,
           },
           {
@@ -43,6 +51,9 @@ export const meetingHandlers = [
             sequence: 1,
             created_at: "2022-12-02T05:53:09.350Z",
             updated_at: "2023-03-21T13:58:18.504Z",
+            trainer_name: "trainer 4",
+            number_of_meetings: "10",
+            number_of_topics_completed: "11",
             deleted_at: null,
           },
           {
@@ -53,6 +64,9 @@ export const meetingHandlers = [
             sequence: 1,
             created_at: "2022-12-09T05:38:04.257Z",
             updated_at: "2022-12-09T05:38:09.808Z",
+            trainer_name: "trainer 5",
+            number_of_meetings: "14",
+            number_of_topics_completed: "19",
             deleted_at: null,
           },
         ],

@@ -1,6 +1,5 @@
+import { URL } from "@/src/config/mockConfig";
 import { rest } from "msw";
-
-import { URL } from "../../../config/mockConfig";
 
 export const rolesHandlers = [
   rest.get(`${URL}/users/data/roles`, (req, res, ctx) => {

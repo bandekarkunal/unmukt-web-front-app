@@ -10,8 +10,10 @@ import Image from "next/image";
 import router from "next/router";
 import CustomInputField from "@/components/ui-components/customInputField";
 import PrimaryButton from "@/components/ui-components/buttons/primaryButton";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const AdminSignIn = () => {
+  const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -25,16 +27,31 @@ const AdminSignIn = () => {
   });
 
   const handleRegister = async (values: any) => {
+    setLoading(true);
     await noAuthPost(`auth/user/signin`, values).then((res: any) => {
       localStorage.setItem("redloftoken", res.data.body.token);
+      console.log(res.data);
       router.push(`/home`, `/home`);
     }),
       (err: any) => {
+        setLoading(false);
         ErrorToast(err.response.data);
       };
+    console.log("sdf");
   };
 
-  return (
+  return loading ? (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <CircularProgress color="secondary" />
+    </Box>
+  ) : (
     <Box>
       <>
         <Head>
@@ -83,6 +100,7 @@ const AdminSignIn = () => {
 
             <form onSubmit={formik.handleSubmit}>
               <CustomInputField
+                sx={{ marginBottom: "15px" }}
                 label={"Email address"}
                 fieldName={"email"}
                 required={true}
@@ -105,7 +123,10 @@ const AdminSignIn = () => {
                 helperText={formik.touched.password && formik.errors.password}
               />
 
-              <PrimaryButton label="Sign in to continue" sx={{ mb: 3 }} />
+              <PrimaryButton
+                label="Sign in to continue"
+                sx={{ marginTop: "15px" }}
+              />
 
               <Box>
                 <Typography textAlign={"center"} component={"p"} mb={1}>

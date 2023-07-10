@@ -7,6 +7,7 @@ import { Context } from "@/context/ContextProvider";
 import { FetchUsersListPromise } from "@/utils/apis/common/userList";
 import AddUserToRole from "@/components/modals/AddUserToRole";
 import AddUserModal from "@/components/modals/AddUserModal";
+import AddStudentModal from "@/components/modals/AddStudentModal";
 import BulkUploadUsers from "@/components/modals/BulkUploadUsers";
 import { get, post } from "@/src/config/axiosClient";
 import { ErrorToast, SuccessToast } from "@/utils/toasts";
@@ -19,6 +20,8 @@ const Students = () => {
 
   const { currentState, userProfile } = GlobalDetailsContext?.state;
   const [openAddUserModal, setOpenAddUserModal] = useState<boolean>(false);
+  const [openAddStudentModal, setOpenAddStudentModal] =
+    useState<boolean>(false);
   const [openBulkUploadModal, setOpenBulkUploadModal] =
     useState<boolean>(false);
   const [openAddFacilitatorModal, setOpenAddFacilitatorModal] =
@@ -29,14 +32,8 @@ const Students = () => {
     setOpenAddFacilitatorModal(true);
   };
 
-  const fetchUsers = () => {
-    FetchUsersListPromise("role-student", "").then((response: any) => {
-      setUsersList(response);
-    });
-  };
-
   const handleAddBtnClick = () => {
-    setOpenAddUserModal(true);
+    setOpenAddStudentModal(true);
   };
 
   const handleBulkUploadClick = () => {
@@ -44,7 +41,7 @@ const Students = () => {
   };
 
   const handleCloseModal = () => {
-    setOpenAddUserModal(false);
+    setOpenAddStudentModal(false);
   };
 
   const handleCloseBulkUploadModal = () => {
@@ -75,8 +72,8 @@ const Students = () => {
         roleToMap={"role-program-coordinator"}
         currentRole={"Facilitator"}
       />
-      <AddUserModal
-        openModal={openAddUserModal}
+      <AddStudentModal
+        openModal={openAddStudentModal}
         closeModal={handleCloseModal}
         // handleSubmitBtnClick={handleAddUserClick}
       />

@@ -82,6 +82,7 @@ const QuillEditor: NextPage<Props> = ({
         </InputLabel>
 
         <ReactQuill
+          sx={{ height: "300px" }}
           value={value}
           modules={{
             toolbar: {

@@ -1,14 +1,16 @@
-import { assessmentHandler } from "./api/assessmentHandler";
-import { curriculumHandlers } from "./api/curriculumHandler";
-import { loginHandlers } from "./api/loginMockHandler";
-import { meetingHandlers } from "./api/meetingHandler";
-import { profileHandlers } from "./api/profileHandler";
-import { rolesHandlers } from "./api/rolesHandler";
-import { userHandler } from "./api/listingData/allUsersHandler";
-import { programManagerListingHandler } from "./api/listingData/programManagersHandler";
-import { blockCoordinatorsListingHandler } from "./api/listingData/blockCoordinatorsHandler";
-import { trainersListingHandler } from "./api/listingData/trainersHandler";
-import { studentsListingHandler } from "./api/listingData/studentsHandler";
+import { loginHandlers } from "./api/postApis/loginMockHandler";
+import { profileHandlers } from "./api/getApis/profileHandler";
+import { userHandler } from "./api/getApis/listingData/allUsersHandler";
+import { programManagerListingHandler } from "./api/getApis/listingData/programManagersHandler";
+import { blockCoordinatorsListingHandler } from "./api/getApis/listingData/blockCoordinatorsHandler";
+import { trainersListingHandler } from "./api/getApis/listingData/trainersHandler";
+import { studentsListingHandler } from "./api/getApis/listingData/studentsHandler";
+import { assessmentHandler } from "./api/getApis/assessmentHandler";
+import { rolesHandlers } from "./api/getApis/rolesHandler";
+import { curriculumHandlers } from "./api/getApis/curriculumHandler";
+import { meetingHandlers } from "./api/getApis/meetingHandler";
+import { meetingUploadHandlers } from "./api/postApis/meetingUploadHandler";
+import { curriculumUploadHandlers } from "./api/postApis/curriculumUploadHandler";
 
 export const handlers = [
   ...loginHandlers,
@@ -22,4 +24,6 @@ export const handlers = [
   ...blockCoordinatorsListingHandler,
   ...trainersListingHandler,
   ...studentsListingHandler,
+  ...meetingUploadHandlers,
+  ...curriculumUploadHandlers,
 ];
